@@ -8,7 +8,7 @@ ACCESS_TOKEN_SECRET = ''
 
 twitter = Twython(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
-search = twitter.search(q='propublica', count="100")
+search = twitter.search(q='Alec Milton', count="100")
 tweets = search['statuses']
 
 with open ('data.csv', 'w') as fp:
@@ -25,5 +25,5 @@ with open ('data.csv', 'w') as fp:
             url = result['entities']['urls'][0]['expanded_url']
         except:
             url = None
-        text=[['propublica', result['text'].encode('utf-8'), url]]
+        text=[['Alec Milton', result['text'].encode('utf-8'), url]]
         a.writerows((text))
